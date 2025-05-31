@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mirian Motors</title>
+  <link rel="icon" href="./Assets/" type="image/x-icon">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+
+ <style>
+  .nav-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .nav-buttons button {
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 18px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .nav-buttons button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .video-section {
+      position: relative;
+      overflow: hidden;
+    }
+    .video-section video {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .video-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+     * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+    }
+
+    .carousel-container {
+      position: relative;
+      padding: 20px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding-bottom: 10px;
+    }
+
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .car-card {
+      flex: none;
+      width: 250px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      scroll-snap-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .car-card:hover {
+      transform: scale(1.05);
+    }
+
+    .car-card img {
+      width: 100%;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    .car-info {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .car-info h6 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 1000px;
+      margin: 40px auto 0;
+    }
+
+    .card {
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .name {
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    .price {
+      color: rgb(0, 128, 28);
+      margin-bottom: 10px;
+    }
+
+    .btn-card {
+      padding: 6px 12px;
+      background: #b51313;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+.margin-top {
+  margin-top: 40px;
+}
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .car-footer {
+  background-color: #111;
+  color: #eee;
+  padding: 40px 20px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column h4 {
+  margin-bottom: 12px;
+  color: #f39c12;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  color: #f39e0c;
+  text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+  color: #f39c12;
+}
+
+.brand h2 {
+  color: #f39c12;
+  margin-bottom: 8px;
+}
+
+.brand p {
+  font-size: 14px;
+  color: #bbb;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  padding: 8px;
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+form button {
+  padding: 8px;
+  background-color: #eae7e1;
+  color: #111;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.socials {
+  margin-top: 10px;
+}
+
+.socials a {
+  margin-right: 12px;
+  font-size: 20px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.socials a:hover {
+  color: #d8d6d3;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #999;
+}
+
+
+  </style>
+</head>           
+<body>
+</head>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
+    <div class="container">
+      <img src="./Assets/Simple M Letter Logo.png" alt="Mirian Motors Logo" width="50" height="50" class="me-2">
+        <span class="fw-bold">MIRIAN MOTORS</span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">HOME</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">ABOUT</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">CONTACT</a></li>
+          <li class="nav-item"><a class="nav-link active" href= "shippingsolutions.html">SHIPPING SOLUTIONS</a></li>
+        </ul>
+    
+      <a href="#" class="btn btn-outline-primary">Book a Test Drive</a>
+      
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="video-section">
+    <video autoplay muted loop>
+      <source src="./Assets/Cars video.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay">
+      <div>
+        <h4 class="display-7 fw-bold">FOR OVER A DECADE THE IDEAL CHOICE AS YOUR AUTOMOTIVE SOURCING PARTNER</h4>
+        <a href="#" class="btn btn-outline-light btn-lg mt-3">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <h4 style="text-align:center; margin-top: 40px ;">OUR CARS SEGMENT</h4>
+  <div class="carousel-container">
+    <div class="nav-buttons">
+      <button onclick="scrollCarousel(-1)">‹</button>
+      <button onclick="scrollCarousel(1)">›</button>
+    </div>
+
+    <div class="carousel" id="carCarousel">
+      <div class="car-card">
+        <img src="./Assets/Trucks vehicle.jpg" alt="Trucks">
+        <div class="car-info">
+          <h6>TRUCKS</h6>
+        </div>
+      </div>
+      <div class="car-card">
+        <img src="./Assets/Pickups Vehicle.jpeg" alt="Pickups">
+        <div class="car-info">
+          <h6>PICKUPS</h6>
+        </div>
+      </div>
+      <div class="car-card">
+        <img src="./Assets/Vans Vehicle.jpg" alt="Vans">
+        <div class="car-info">
+          <h6>VANS</h6>
+        </div>
+      </div>
+      <div class="car-card">
+        <img src="./Assets/electric-cars-.jpg" alt="Electric Cars">
+        <div class="car-info">
+          <h6>ELECTRIC CARS</h6>
+        </div>
+      </div>
+      <div class="car-card">
+        <img src="./Assets/Passenger Cars.jpg" alt="Passenger vehicle">
+        <div class="car-info">
+          <h6>PASSENGER VEHICLES</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function scrollCarousel(direction) {
+      const carousel = document.getElementById('carCarousel');
+      const cardWidth = carousel.querySelector('.car-card').offsetWidth + 20; // 20 = gap
+      carousel.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+    }
+     </script>
+    
+  </style>
+</head>
+<body>
+  <h4 style="text-align:center; margin-top: 20px;">OUR INVENTORY</h4>
+  <div class="grid">
+    <div class="card"><img src="./Assets/HONGQI E-QM5.jpg"><div class="name">Hongqi E-QM5 Luxury</div><div class="price">$450000</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/2024-Kia-Sorento-4dr-FWD_1311.jpg"><div class="name">2025 Kia Sorento 2.5 EX Panorama 4wd</div><div class="price">$627000</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/2025 KIA SORENTO EX 2WD.png"><div class="name">Kia Sorento EX 2WD</div><div class="price">$539000</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/2025 MG LUXURY.jpeg"><div class="name">2025 Mg Luxury</div><div class="price">$745000</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/NISSAN NAVARA PRO 4X.png"><div class="name">Nissan Navara Pro 4X</div><div class="price">$900895</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/SUZUKI JIMMY.jpeg"><div class="name">Suzuki Jimmy</div><div class="price">$916000</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/WULING BINGO.jpeg"><div class="name">Wuling Bingo</div><div class="price">$87770</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/Wuling-Formo-Max-Right-Rudder-Loading-Truck-Car.avif"><div class="name">Wuling Formo Truck</div><div class="price">$480000</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/WULING SINGLE CABIN.jpeg"><div class="name">Wuling Single Cabin</div><div class="price">$399000</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/WULING YEP.png"><div class="name">Wuling Yep</div><div class="price">$520000</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/2024_Mercedes_AMG_GT_63_4_MATIC_banner_b3ce7e654a.png"><div class="name">Mercedes AMG</div><div class="price">$800210</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/2025 dongfeng zna rich 6 4wd petrol.jpeg"><div class="name">Dongfeng zna rich 6 4wd petrol</div><div class="price">$700202</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/Hong qi Electric car.avif"><div class="name">Hong qi Electric car</div><div class="price">$900230</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/HONGQI E-QM5.jpg"><div class="name">Hongqi E-QM5</div><div class="price">$600240</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/wuling-VAN-color-575979.avif"><div class="name">Wuling Van</div><div class="price">$825000</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/BYD E LUXURY.jpeg"><div class="name">BYD E Luxury</div><div class="price">$526000</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/2025 dongfeng zna rich 6 4wd petrol.jpeg"><div class="name">2025 dongfeng zna 4wd petrol</div><div class="price">$827000</div><button class="btn-card">ADD TO CART</button></div>
+    <div class="card"><img src="./Assets/2025 MG LUXURY.jpeg"><div class="name">2025 MG Luxury</div><div class="price">$628700</div><button class="btn-card">ADD TO CART</button></div>
+    
+    
+  </div>
+
+</body>
+</html>
+
+  <!-- Features Section -->
+  
+<footer class="car-footer">
+  <div class="footer-wrapper">
+    <div class="footer-column brand">
+      <h5>Mirian Motors</h5>
+      <p>Luxury. Performance. Innovation.</p>
+    </div>
+
+    <div class="footer-column">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Models</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">News</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Service Centers</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Warranty</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Subscribe</h4>
+      <form>
+        <input type="email" placeholder="Your email" />
+        <button type="submit">Subscribe</button>
+      </form>
+      
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3">
+   <p class="mb-0"> &copy; 2025 Mirian Motors. All rights reserved.
+  </div>
+</footer>
+
+
+  <!-- Bootstrap JS -->
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</body>
+</html>
